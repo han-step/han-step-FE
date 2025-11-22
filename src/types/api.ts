@@ -29,6 +29,7 @@ export interface MyInfoResponse {
   name: string;
   koreanLevel: KoreanLevel;
   solvedQuizCount: number;
+  solvedQuizSetCount: number;
 }
 
 // 퀴즈 세트 목록
