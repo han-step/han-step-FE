@@ -1,4 +1,4 @@
-import { QuizList, QuizSetGenerateButton } from './components';
+import { QuizList } from './components';
 import { useGetQuizSetList } from './hooks/useGetQuizSetList';
 
 const QuizListPage = () => {
@@ -32,8 +32,6 @@ const QuizListPage = () => {
       </p>
 
       <QuizList quizSets={quizSets} />
-
-      <QuizSetGenerateButton />
     </div>
   );
 };

@@ -18,19 +18,6 @@ export interface QuizSubmitResponse {
   elapsedMillis: number;
 }
 
-// AI 퀴즈 생성
-export interface QuizSetGenerateRequest {
-  title: string;
-  level: string;
-  count: number;
-}
-
-export interface QuizSetGenerateResponse {
-  quizSetId: number;
-  title: string;
-  count: number;
-}
-
 // 내 정보
 export interface MyInfoRequest {
   name: string;
