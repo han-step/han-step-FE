@@ -5,18 +5,30 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <AppLayout showHeader={true} />,
+    element: <AppLayout />,
     children: [
       {
         index: true,
         element: <HomePage />,
       },
+    ],
+  },
+  {
+    path: '/quiz-list',
+    element: <AppLayout />,
+    children: [
       {
-        path: '/quiz-list',
+        index: true,
         element: <QuizListPage />,
       },
+    ],
+  },
+  {
+    path: '/quiz/:id',
+    element: <AppLayout showHeader={false} />,
+    children: [
       {
-        path: '/quiz/:id',
+        index: true,
         element: <QuizPage />,
       },
     ],
