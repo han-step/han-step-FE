@@ -15,6 +15,9 @@ export const usePostSubmitQuizSet = (id: number) => {
       queryClient.invalidateQueries({
         queryKey: QUERY_KEYS.QUIZ_SET_DETAIL(id),
       });
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.QUIZ_SET_LIST],
+      });
     },
   });
 };
