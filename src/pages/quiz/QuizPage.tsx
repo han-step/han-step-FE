@@ -72,7 +72,7 @@ const QuizPage = () => {
 
   if (isLoading) {
     return (
-      <div className='flex items-center justify-center p-6 min-h-[400px]'>
+      <div className='flex items-center justify-center p-6 min-h-[400px] mt-4'>
         <div className='flex flex-col items-center gap-3'>
           <div className='w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin' />
           <div className='text-muted-foreground'>로딩 중...</div>
@@ -83,7 +83,7 @@ const QuizPage = () => {
 
   if (!quizSet) {
     return (
-      <div className='flex items-center justify-center p-6 min-h-[400px]'>
+      <div className='flex items-center justify-center p-6 min-h-[400px] mt-4'>
         <div className='text-muted-foreground'>퀴즈를 찾을 수 없습니다.</div>
       </div>
     );
@@ -109,7 +109,7 @@ const QuizPage = () => {
   }
 
   return (
-    <div className='p-6'>
+    <div className='p-6 mt-4'>
       <QuizHeader
         quizSet={quizSet}
         currentIndex={currentIndex}
