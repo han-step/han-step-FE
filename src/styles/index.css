@@ -1,11 +1,17 @@
 /* Tailwind CSS v4 기본 설정 및 전역 스타일 */
 
-@import './fonts.css';
 @import 'tailwindcss';
+@import './fonts.css';
 @import './theme.css';
 
 /* 기본 스타일 */
 @layer base {
+  html,
+  body,
+  #root {
+    @apply min-h-screen;
+  }
+
   /* 페이지 기본 스타일 */
   body {
     @apply bg-background text-foreground antialiased;

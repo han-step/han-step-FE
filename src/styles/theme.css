@@ -62,46 +62,82 @@
 
   /* 주요 액션 색상 */
   --color-primary: var(--primary); /* 사용법: bg-primary, border-primary */
-  --color-primary-foreground: var(--primary-foreground); /* 사용법: text-primary-foreground */
-  --color-primary-hover: var(--primary-hover); /* 사용법: hover:bg-primary-hover */
+  --color-primary-foreground: var(
+    --primary-foreground
+  ); /* 사용법: text-primary-foreground */
+  --color-primary-hover: var(
+    --primary-hover
+  ); /* 사용법: hover:bg-primary-hover */
 
   /* 보조 액션 색상 */
   --color-secondary: var(--secondary); /* 사용법: bg-secondary */
-  --color-secondary-foreground: var(--secondary-foreground); /* 사용법: text-secondary-foreground */
-  --color-secondary-hover: var(--secondary-hover); /* 사용법: hover:bg-secondary-hover */
+  --color-secondary-foreground: var(
+    --secondary-foreground
+  ); /* 사용법: text-secondary-foreground */
+  --color-secondary-hover: var(
+    --secondary-hover
+  ); /* 사용법: hover:bg-secondary-hover */
 
   /* 비활성/서브 텍스트 색상 */
   --color-muted: var(--muted); /* 사용법: bg-muted */
-  --color-muted-foreground: var(--muted-foreground); /* 사용법: text-muted-foreground */
+  --color-muted-foreground: var(
+    --muted-foreground
+  ); /* 사용법: text-muted-foreground */
   --color-muted-hover: var(--muted-hover); /* 사용법: hover:bg-muted-hover */
 
   /* 강조 색상 */
   --color-accent: var(--accent); /* 사용법: bg-accent */
-  --color-accent-foreground: var(--accent-foreground); /* 사용법: text-accent-foreground */
+  --color-accent-foreground: var(
+    --accent-foreground
+  ); /* 사용법: text-accent-foreground */
   --color-accent-hover: var(--accent-hover); /* 사용법: hover:bg-accent-hover */
 
   /* 경고/에러 색상 */
-  --color-destructive: var(--destructive); /* 사용법: bg-destructive, text-destructive */
-  --color-destructive-foreground: var(--destructive-foreground); /* 사용법: text-destructive-foreground */
-  --color-destructive-hover: var(--destructive-hover); /* 사용법: hover:bg-destructive-hover */
+  --color-destructive: var(
+    --destructive
+  ); /* 사용법: bg-destructive, text-destructive */
+  --color-destructive-foreground: var(
+    --destructive-foreground
+  ); /* 사용법: text-destructive-foreground */
+  --color-destructive-hover: var(
+    --destructive-hover
+  ); /* 사용법: hover:bg-destructive-hover */
 
   /* 성공 색상 */
   --color-success: var(--success); /* 사용법: bg-success, text-success */
-  --color-success-foreground: var(--success-foreground); /* 사용법: text-success-foreground */
-  --color-success-hover: var(--success-hover); /* 사용법: hover:bg-success-hover */
+  --color-success-foreground: var(
+    --success-foreground
+  ); /* 사용법: text-success-foreground */
+  --color-success-hover: var(
+    --success-hover
+  ); /* 사용법: hover:bg-success-hover */
 
   /* 테두리/입력/포커스 색상 - primary와 회색으로 구분 */
   --color-border: var(--border); /* 사용법: border-border (기본 회색) */
-  --color-border-hover: var(--border-hover); /* 사용법: hover:border-border-hover */
-  --color-border-primary: var(--border-primary); /* 사용법: border-border-primary (파란색) */
-  --color-border-primary-hover: var(--border-primary-hover); /* 사용법: hover:border-border-primary-hover */
-  --color-border-primary-focus: var(--border-primary-focus); /* 사용법: focus:border-border-primary-focus */
+  --color-border-hover: var(
+    --border-hover
+  ); /* 사용법: hover:border-border-hover */
+  --color-border-primary: var(
+    --border-primary
+  ); /* 사용법: border-border-primary (파란색) */
+  --color-border-primary-hover: var(
+    --border-primary-hover
+  ); /* 사용법: hover:border-border-primary-hover */
+  --color-border-primary-focus: var(
+    --border-primary-focus
+  ); /* 사용법: focus:border-border-primary-focus */
 
   /* 입력창 테두리 색상 */
   --color-input: var(--input); /* 사용법: border-input */
-  --color-input-hover: var(--input-hover); /* 사용법: hover:border-input-hover */
-  --color-input-focus: var(--input-focus); /* 사용법: focus:border-input-focus */
-  --color-input-disabled: var(--input-disabled); /* 사용법: disabled:border-input-disabled */
+  --color-input-hover: var(
+    --input-hover
+  ); /* 사용법: hover:border-input-hover */
+  --color-input-focus: var(
+    --input-focus
+  ); /* 사용법: focus:border-input-focus */
+  --color-input-disabled: var(
+    --input-disabled
+  ); /* 사용법: disabled:border-input-disabled */
 
   /* 포커스 링 색상 */
   --color-ring: var(--ring); /* 사용법: ring-ring */
