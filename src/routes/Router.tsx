@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/quiz-list',
-    element: <AppLayout />,
+    element: <AppLayout headerType='sub' />,
     children: [
       {
         index: true,
