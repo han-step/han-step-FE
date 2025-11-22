@@ -91,9 +91,7 @@ export const EditMyInfoModal = ({
               required
               disabled={isPending}
             >
-              <option value='BEGINNER'>
-                {KOREAN_LEVEL_LABELS.BEGINNER}
-              </option>
+              <option value='BEGINNER'>{KOREAN_LEVEL_LABELS.BEGINNER}</option>
               <option value='INTERMEDIATE'>
                 {KOREAN_LEVEL_LABELS.INTERMEDIATE}
               </option>
@@ -124,4 +122,3 @@ export const EditMyInfoModal = ({
     </div>
   );
 };
-
