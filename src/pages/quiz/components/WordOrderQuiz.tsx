@@ -28,11 +28,14 @@ export const WordOrderQuiz = ({
     selectedAnswer ? selectedAnswer.split('|').map((w) => w.trim()) : [],
   );
 
+  // selectedAnswer prop 변경 시 내부 state 동기화
+  // 외부에서 selectedAnswer가 변경된 경우(예: 문제 변경)에만 동기화
   useEffect(() => {
-    if (selectedAnswer) {
-      setSelectedWords(selectedAnswer.split('|').map((w) => w.trim()));
-    } else {
-      setSelectedWords([]);
+    if (selectedAnswer !== undefined) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSelectedWords(
+        selectedAnswer ? selectedAnswer.split('|').map((w) => w.trim()) : [],
+      );
     }
   }, [selectedAnswer]);
 
@@ -123,8 +126,8 @@ export const WordOrderQuiz = ({
                     ? 'opacity-50 cursor-not-allowed'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : isUsed
-                  ? 'bg-primary/20 text-primary border-2 border-primary cursor-not-allowed opacity-50'
-                  : 'bg-white text-foreground border-2 border-border hover:border-primary hover:bg-accent/30 cursor-pointer'
+                    ? 'bg-primary/20 text-primary border-2 border-primary cursor-not-allowed opacity-50'
+                    : 'bg-white text-foreground border-2 border-border hover:border-primary hover:bg-accent/30 cursor-pointer'
               }`}
             >
               {word}

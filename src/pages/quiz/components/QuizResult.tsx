@@ -57,4 +57,3 @@ export const QuizResult = ({ result }: QuizResultProps) => {
     </div>
   );
 };
-
