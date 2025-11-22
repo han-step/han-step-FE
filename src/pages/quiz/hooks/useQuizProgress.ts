@@ -8,7 +8,6 @@ interface UseQuizProgressProps {
   answers: Record<number, string>;
   startTime: number;
   answeredQuizId: number | null;
-  isSubmitted: boolean;
   submitMutation: UseMutationResult<
     {
       totalCount: number;
@@ -33,7 +32,6 @@ export const useQuizProgress = ({
   answers,
   startTime,
   answeredQuizId,
-  isSubmitted,
   submitMutation,
   setCurrentIndex,
   setAnsweredQuizId,
@@ -61,7 +59,7 @@ export const useQuizProgress = ({
   // 타이머 및 다음 문제 이동 로직
   useEffect(() => {
     // 제출 완료된 경우 타이머 실행하지 않음
-    if (isSubmitted || submitMutation.isSuccess) {
+    if (submitMutation.isSuccess) {
       return;
     }
 
@@ -102,7 +100,6 @@ export const useQuizProgress = ({
     currentIndex,
     quizSet,
     startTime,
-    isSubmitted,
     submitMutation,
     setCurrentIndex,
     setAnsweredQuizId,

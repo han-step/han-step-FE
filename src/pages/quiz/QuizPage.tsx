@@ -1,7 +1,5 @@
 import { useState, useCallback } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import { getQuizSetDetail, submitQuizSet } from '../../api';
 import {
   QuizHeader,
   QuizQuestionCard,
@@ -9,35 +7,21 @@ import {
   QuizResult,
 } from './components';
 import { useQuizProgress } from './hooks/useQuizProgress';
+import { useGetQuizSetDetail } from './hooks/useGetQuizSetDetail';
+import { usePostSubmitQuizSet } from './hooks/usePostSubmitQuizSet';
 
 const QuizPage = () => {
   const { id } = useParams<{ id: string }>();
-  const queryClient = useQueryClient();
   const quizSetId = id ? parseInt(id, 10) : 0;
 
-  const { data: quizSet, isLoading } = useQuery({
-    queryKey: ['quizSetDetail', quizSetId],
-    queryFn: () => getQuizSetDetail(quizSetId),
-    enabled: !!quizSetId,
-  });
+  const { data: quizSet, isLoading } = useGetQuizSetDetail(quizSetId ?? 0);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [startTime] = useState(Date.now());
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [answeredQuizId, setAnsweredQuizId] = useState<number | null>(null);
 
-  const submitMutation = useMutation({
-    mutationFn: (data: {
-      totalCount: number;
-      correctCount: number;
-      elapsedMillis: number;
-    }) => submitQuizSet(quizSetId, data),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['quizSetList'] });
-      setIsSubmitted(true);
-    },
-  });
+  const submitMutation = usePostSubmitQuizSet(quizSetId ?? 0);
 
   const { completedQuizIds } = useQuizProgress({
     quizSet,
@@ -45,7 +29,6 @@ const QuizPage = () => {
     answers,
     startTime,
     answeredQuizId,
-    isSubmitted,
     submitMutation,
     setCurrentIndex,
     setAnsweredQuizId,
@@ -113,7 +96,7 @@ const QuizPage = () => {
   // 제출 중이거나 제출 완료된 경우 전체 문제 수로 계산
   // 확인 버튼을 누른 문제만 카운트에 포함
   const answeredCount = (() => {
-    if (isSubmitted || submitMutation.isPending) {
+    if (submitMutation.isSuccess || submitMutation.isPending) {
       return quizSet.quizzes.length;
     }
 
@@ -121,7 +104,7 @@ const QuizPage = () => {
     return completedQuizIds.size;
   })();
 
-  if (isSubmitted && submitMutation.data) {
+  if (submitMutation.isSuccess && submitMutation.data) {
     return <QuizResult result={submitMutation.data} />;
   }
 
