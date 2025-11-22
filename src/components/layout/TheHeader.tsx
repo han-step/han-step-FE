@@ -30,11 +30,8 @@ export const TheHeader = ({ headerType }: { headerType: 'main' | 'sub' }) => {
       <div className='px-6'>
         <div className='flex items-center justify-between h-16'>
           {headerType === 'main' ? (
-            <Link
-              to='/'
-              className='text-xl font-bold bg-linear-to-r from-primary to-primary-hover bg-clip-text text-transparent'
-            >
-              한 걸음
+            <Link to='/' className='text-xl font-bold  text-primary'>
+              한걸음
             </Link>
           ) : (
             <button
