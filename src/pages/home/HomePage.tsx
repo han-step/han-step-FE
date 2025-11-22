@@ -1,13 +1,10 @@
 import { HomeBriefing, HomeInfo, HomeTitle } from './components';
 import { useGetMyInfo } from './hooks/useGetMyInfo';
-import { useGetMyBriefing } from './hooks/useGetMyBriefing';
 
 const HomePage = () => {
   const { data: myInfo, isLoading: infoLoading } = useGetMyInfo();
 
-  const { data: briefing, isLoading: briefingLoading } = useGetMyBriefing();
-
-  if (infoLoading || briefingLoading) {
+  if (infoLoading) {
     return (
       <div className='flex items-center justify-center p-6 min-h-[400px] flex-1'>
         <div className='flex flex-col items-center gap-3'>
@@ -18,7 +15,7 @@ const HomePage = () => {
     );
   }
 
-  if (!myInfo || !briefing) {
+  if (!myInfo) {
     return (
       <div className='flex items-center justify-center p-6 min-h-[400px] flex-1'>
         <div className='text-muted-foreground'>정보를 불러올 수 없습니다.</div>
@@ -30,7 +27,7 @@ const HomePage = () => {
     <div className='p-6 space-y-6 flex-1'>
       <HomeTitle myInfo={myInfo} />
       <HomeInfo myInfo={myInfo} />
-      <HomeBriefing briefing={briefing} />
+      <HomeBriefing />
     </div>
   );
 };
