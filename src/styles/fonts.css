@@ -1,6 +1,5 @@
-/* Google Fonts 로드 */
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 /* Google Fonts 설정 - Tailwind CSS v4 */
+/* @import는 index.css로 이동됨 */
 
 /* 커스텀 폰트 패밀리 정의 */
 @layer base {

@@ -1,5 +1,7 @@
 /* Tailwind CSS v4 기본 설정 및 전역 스타일 */
 
+/* Google Fonts 로드 - @import는 반드시 파일 최상단에 위치해야 함 */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import 'tailwindcss';
 @import './fonts.css';
 @import './theme.css';

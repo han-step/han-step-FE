@@ -13,9 +13,7 @@ export const HomeInfo = ({ myInfo }: HomeInfoProps) => {
         <div className='w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center'>
           <User className='w-5 h-5 text-primary' />
         </div>
-        <h2 className='text-xl font-semibold text-foreground'>
-          내 한국어 수준
-        </h2>
+        <h2 className='text-xl font-semibold text-foreground'>학습 현황</h2>
       </div>
       {myInfo ? (
         <div className='space-y-4'>
