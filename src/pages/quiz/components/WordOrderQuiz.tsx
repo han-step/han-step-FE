@@ -28,6 +28,12 @@ export const WordOrderQuiz = ({
     selectedAnswer ? selectedAnswer.split('|').map((w) => w.trim()) : [],
   );
 
+  // quiz.id가 변경되면 selectedWords 초기화 (새 문제로 넘어갈 때)
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSelectedWords([]);
+  }, [quiz.id]);
+
   // selectedAnswer prop 변경 시 내부 state 동기화
   // 외부에서 selectedAnswer가 변경된 경우(예: 문제 변경)에만 동기화
   useEffect(() => {
@@ -126,7 +132,7 @@ export const WordOrderQuiz = ({
                     ? 'opacity-50 cursor-not-allowed'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : isUsed
-                    ? 'bg-primary/20 text-primary border-2 border-primary cursor-not-allowed opacity-50'
+                    ? 'bg-primary/20 text-primary border-2 border-primary cursor-not-allowed'
                     : 'bg-white text-foreground border-2 border-border hover:border-primary hover:bg-accent/30 cursor-pointer'
               }`}
             >
@@ -136,7 +142,6 @@ export const WordOrderQuiz = ({
         })}
       </div>
 
-      {/* 확인 버튼 */}
       {!isAnswered && (
         <button
           onClick={handleConfirm}
@@ -147,7 +152,6 @@ export const WordOrderQuiz = ({
         </button>
       )}
 
-      {/* 정답 표시 (답변 후) */}
       {isAnswered && (
         <div
           className={`mt-4 p-4 rounded-xl border-2 ${
