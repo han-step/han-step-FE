@@ -1,5 +1,6 @@
 import { QuizList } from './components';
 import { useGetQuizSetList } from './hooks/useGetQuizSetList';
+import type { QuizSetListResponse } from '@/types/api';
 
 const QuizListPage = () => {
   const { data: quizSets, isLoading } = useGetQuizSetList();
@@ -25,13 +26,36 @@ const QuizListPage = () => {
     );
   }
 
-  return (
-    <div className='flex flex-col gap-4 p-6'>
-      <p className='text-lg font-medium text-foreground'>
-        원하는 퀴즈를 선택하여 시작하세요
-      </p>
+  // 퀴즈를 완료한 것과 안 한 것으로 분리
+  const unsolvedQuizzes = quizSets.filter(
+    (quiz: QuizSetListResponse) => !quiz.solved,
+  );
+  const solvedQuizzes = quizSets.filter(
+    (quiz: QuizSetListResponse) => quiz.solved,
+  );
 
-      <QuizList quizSets={quizSets} />
+  return (
+    <div className='flex flex-col gap-6 p-6'>
+      {unsolvedQuizzes.length > 0 && (
+        <div className='flex flex-col gap-4'>
+          <h2 className='text-xl font-semibold text-foreground'>새로운 퀴즈</h2>
+          <QuizList quizSets={unsolvedQuizzes} />
+        </div>
+      )}
+
+      {solvedQuizzes.length > 0 && (
+        <div className='flex flex-col gap-4'>
+          <h2 className='text-xl font-semibold text-foreground'>완료한 퀴즈</h2>
+          <QuizList quizSets={solvedQuizzes} />
+        </div>
+      )}
+
+      {/* 퀴즈가 없을 때 */}
+      {unsolvedQuizzes.length === 0 && solvedQuizzes.length === 0 && (
+        <div className='bg-white rounded-2xl shadow-sm border border-border/50 p-12 text-center'>
+          <p className='text-muted-foreground text-lg'>퀴즈가 없습니다.</p>
+        </div>
+      )}
     </div>
   );
 };
